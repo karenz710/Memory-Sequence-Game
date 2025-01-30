@@ -1,0 +1,27 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center; /* center horizontally */
+    align-items: flex-start; /* align to the top */
+    background-color: #000000; 
+}
+
+.tile {
+    width: 100px;
+    height: 100px;
+    background-color: #86b2e4; /* default color */
+    border-radius: 10px; /* round corners */
+}
+.tile.lit {
+    background-color: #f4f8e6; /* lit color */
+    transition: background-color 0.1s ease;
+}
+
+.game-board{
+    display: grid; /* 3 columns, each taking equal fraction of space */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
