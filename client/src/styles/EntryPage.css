@@ -1,0 +1,24 @@
+.entry-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50vh; /* Take up half the screen */
+    align-items: center;
+    color: white; /* text color */
+    font-family: Arial;
+}
+
+.entry-page h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.entry-page button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background-color: #ff9900;
+    border: none;
+    border-radius: 5px;
+  }

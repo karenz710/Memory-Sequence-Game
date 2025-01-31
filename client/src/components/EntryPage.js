@@ -5,7 +5,8 @@ const EntryPage = ( {onStartGame} ) => {
     return (
         <div className="entry-page"> 
             <h1>Memory Sequence Game</h1>
-            <button onClick={onStartGame}>Start</button>
+            {/*calls onStartGame function*/}
+            <button onClick={onStartGame}>Start</button> 
         </div>
     );
 }

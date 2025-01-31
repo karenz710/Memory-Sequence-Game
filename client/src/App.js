@@ -13,13 +13,18 @@ function App() {
     setGameStarted(true);
   }
 
+  const handleGameOver = () => {
+    setGameStarted(false);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
         {!gameStarted ? (
-          <EntryPage onStartGame={handleStartGame} /> // passes in handleStartGame
+          // when button on entrypage is clicked onStartGame executes and gamestarted is set to true
+          <EntryPage onStartGame={handleStartGame} /> // passes in handleStartGame when game started
         ) : (
-        <GameBoard />
+        <GameBoard gameStarted={gameStarted} onGameOver={handleGameOver} />
         )}
       </header>
     </div>
