@@ -6,6 +6,13 @@ body, html {
     justify-content: center; /* center horizontally */
     align-items: flex-start; /* align to the top */
     background-color: #375cb8; 
+    color: white;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
 }
 
 .tile {

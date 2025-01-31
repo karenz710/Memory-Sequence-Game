@@ -15,6 +15,7 @@
 
 .entry-page button {
     display: inline-block;
+    margin-top: 20px;
     padding: 10px 20px;
     font-size: 1.2rem;
     cursor: pointer;
