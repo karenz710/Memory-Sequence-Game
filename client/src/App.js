@@ -2,7 +2,9 @@ import axios from 'axios';
 import React, { useState } from "react";
 import GameBoard from "./components/GameBoard";
 import EntryPage from './components/EntryPage';
+import HighScoreBoard from './components/HighScoreBoard';
 import "./styles/index.css";
+
 
 function App() {
 
@@ -19,14 +21,17 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <div className="game-container">
         {!gameStarted ? (
           // when button on entrypage is clicked onStartGame executes and gamestarted is set to true
           <EntryPage onStartGame={handleStartGame} /> // passes in handleStartGame when game started
         ) : (
         <GameBoard gameStarted={gameStarted} onGameOver={handleGameOver} />
         )}
-      </header>
+      </div>
+      <div className="high-score-container">
+        <HighScoreBoard />
+      </div>
     </div>
   );
 }
