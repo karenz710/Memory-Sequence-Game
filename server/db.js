@@ -1,15 +1,12 @@
 const mysql = require("mysql2");
 require("dotenv").config();
 
-const pool = mysql.createPool({
+const db = mysql.createConnection({
   host: process.env.MYSQL_HOST,
   user: process.env.MYSQL_USER,
   password: process.env.MYSQL_PASSWORD,
   database: process.env.MYSQL_DATABASE,
 });
-
-const promisePool = pool.promises();
-module.exports = promisePool;
 
 // Connect to MySQL
 db.connect((err) => {
@@ -19,3 +16,5 @@ db.connect((err) => {
   }
   console.log("Connected to MySQL!");
 });
+
+module.exports = db;

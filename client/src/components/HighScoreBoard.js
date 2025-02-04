@@ -33,7 +33,7 @@ const HighScoreBoard = () => {
                         <tr key={score.id}>
                             <td>{index+1}</td>
                             <td>{score.level}</td>
-                            <td>{new Date(score.time).toLocaleString()}</td>
+                            <td>{new Date(score.created_at).toLocaleString()}</td>
                         </tr>
                     ))}
                 </tbody>
