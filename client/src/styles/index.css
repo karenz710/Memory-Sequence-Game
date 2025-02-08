@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.game-wrapper {
+  display: flex;
+  justify-content: center; /* Ensures the game board stays centered */
+  align-items: flex-start; /* Align items at the top */
+  gap: 20px; /* Space between game and scoreboard */
+  width: 80%; /* Control width of the entire section */
+  max-width: 900px; /* Prevent it from stretching too wide */
+  margin-top: 20px;
+}
+
+.game-container {
+  flex-shrink: 0; /* Prevent it from shrinking */
+}
+
+.high-score-container {
+    flex-shrink: 0; /* Prevent shrinking */
+    width: 250px; /* Set a fixed width for scoreboard */
+    margin-left: 20px; /* Add spacing */
+}

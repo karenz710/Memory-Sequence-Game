@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "../styles/HighScoreBoard.css";
 
 const HighScoreBoard = () => {
     const [highScores, setHighScores] = useState([]);
@@ -11,6 +12,7 @@ const HighScoreBoard = () => {
         try{
             const response = await fetch("http://localhost:5000/api/highscores");
             const data = await response.json();
+            console.log("Fetched high scores:", data); // Log the data
             setHighScores(data);
         }catch (error){
             console.error("Error fetching high scores: ", error);
@@ -19,7 +21,7 @@ const HighScoreBoard = () => {
 
     return (
         <div className = "high-score-board">
-            <h2>High Scores</h2>
+            <h2>All-Time High Score Board</h2>
             <table>
                 <thead>
                     <tr>
