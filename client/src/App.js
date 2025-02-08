@@ -14,9 +14,18 @@ function App() {
   };
 
   const handleGameOver = async (level) => {
-    const saveScore = window.confirm(
-      'Game Over! You reached level ${level}!\n\n Save score?'
-    );
+    let message = ''
+    if (level <= 5) {
+      message = 'You can do better next time.'
+    } else if (level <= 20) {
+      message = 'Mediocre!'
+    } else if (level <= 25) {
+      message = 'Decent...'
+    } else {
+      message = 'Good job!'
+    }
+
+    const saveScore = window.confirm(`Game over!\n\nYou reached level ${level}. ${message}\n\n Save score?`);
 
     if (saveScore) {
       try {
@@ -24,7 +33,7 @@ function App() {
           level: level,
           time: new Date().toISOString()
         });
-        alert('Score saved');
+        alert('Score saved :)');
         setGameStarted(false);
       } catch (error) {
         console.error('Error saving score', error);

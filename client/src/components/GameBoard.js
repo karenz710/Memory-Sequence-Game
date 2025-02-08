@@ -61,8 +61,7 @@ const GameBoard = ({ gameStarted, onGameOver }) => {
     // check if the last clicked tile matches the corresponding tile in the seq
     if (input[input.length-1] !== sequence[input.length-1]){
       // game over
-      alert("Game Over!");
-      onGameOver();
+      onGameOver(level); // calls function handleGameOver
     } else if (input.length === sequence.length){ // entire sequence is correct
       setLevel(level+1)
       setPlayerInput([]);
