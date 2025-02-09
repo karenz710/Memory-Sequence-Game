@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import GameBoard from "./components/GameBoard";
 import EntryPage from "./components/EntryPage";
 import HighScoreBoard from "./components/HighScoreBoard";
-import "./styles/index.css";
+import "./styles/App.css";
 
 function App() {
   // entrance page pops up until start game is pressed
@@ -53,8 +53,9 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <div className="game-wrapper">
+    <div className="app-container">
+      {/* Main Game Section */}
+      <div className="game-section">
         <div className="game-container">
           {!gameStarted ? (
             // when button on entrypage is clicked onStartGame executes and gamestarted is set to true
@@ -63,9 +64,10 @@ function App() {
             <GameBoard gameStarted={gameStarted} onGameOver={handleGameOver} />
           )}
         </div>
-        <div className="high-score-container">
+      </div>
+      {/* Fixed High Score Board on the Right */}
+      <div className="high-score-section">
           <HighScoreBoard refreshTrigger={refreshTrigger}/>
-        </div>
       </div>
     </div>
   );

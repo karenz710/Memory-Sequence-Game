@@ -11,8 +11,8 @@ body, html {
 
 h2 {
     text-align: center;
-    margin-top: 30px;
-    margin-bottom: 50px;
+    font-size: 2rem;
+    margin-bottom: 30px;
 }
 
 .tile {
@@ -27,9 +27,17 @@ h2 {
     transition: background-color 0.1s ease;
 }
 
-.game-board{
-    display: grid; /* 3 columns, each taking equal fraction of space */
+.game-board-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+  
+  .game-board {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    margin-top: 20px;
-}
+    max-width: 400px;
+    margin: 0 auto;
+  }

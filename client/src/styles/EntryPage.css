@@ -1,16 +1,19 @@
 .entry-page{
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     height: 50vh; /* Take up half the screen */
-    align-items: center;
     color: white; /* text color */
     font-family: Arial;
+    min-width: 400px;
 }
+
 
 .entry-page h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .entry-page button {
