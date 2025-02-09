@@ -36,6 +36,19 @@ app.post("/api/highscores", async (req, res) => {
   }
 });
 
+// Delete all entries from H.S board
+app.delete("/api/highscores", async (req, res) => {
+  const query = "TRUNCATE TABLE highscores";
+  
+  try{
+    await db.promise().query(query);
+    res.json({ success: true, message: "Highscores cleared"});
+  } catch (err){
+    console.error("Error clearing high scores", err);
+    res.status(500).json({ success: false, message: "Failed to clear high scores"});
+  }
+});
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

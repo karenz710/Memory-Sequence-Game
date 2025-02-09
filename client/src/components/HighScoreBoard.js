@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import axios from 'axios';
 import "../styles/HighScoreBoard.css";
 
 const HighScoreBoard = ({ refreshTrigger }) => {
@@ -19,9 +20,21 @@ const HighScoreBoard = ({ refreshTrigger }) => {
         }
     };
 
+    const clearHighScores = async () => {
+        try {
+          const response = await axios.delete('http://localhost:5000/api/highscores');
+          console.log(response.data);
+          fetchHighScores(); // refresh the hs board
+        } catch (error) {
+          console.error('Error clearing high scores:', error);
+        }
+      };
+
     return (
         <div className = "high-score-board">
+            
             <h2>All-Time High Score Board</h2>
+            <button onClick={clearHighScores}>Clear High Scores</button> 
             <table>
                 <thead>
                     <tr>
