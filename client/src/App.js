@@ -8,6 +8,8 @@ import "./styles/index.css";
 function App() {
   // entrance page pops up until start game is pressed
   const [gameStarted, setGameStarted] = useState(false);
+  // state for refreshing high score board
+  const [refreshTrigger, setRefreshTrigger] = useState(0);
 
   const handleStartGame = () => {
     setGameStarted(true);
@@ -34,6 +36,7 @@ function App() {
           level: level,
         });
         alert('Score saved :)');
+        setRefreshTrigger(prev => prev+1);
         setGameStarted(false);
       } catch (error) {
         console.error('Error saving score', error);
@@ -61,7 +64,7 @@ function App() {
           )}
         </div>
         <div className="high-score-container">
-          <HighScoreBoard />
+          <HighScoreBoard refreshTrigger={refreshTrigger}/>
         </div>
       </div>
     </div>

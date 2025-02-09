@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import "../styles/HighScoreBoard.css";
 
-const HighScoreBoard = () => {
+const HighScoreBoard = ({ refreshTrigger }) => {
     const [highScores, setHighScores] = useState([]);
 
     useEffect(() => {
         fetchHighScores();
-    }, []);
+    }, [refreshTrigger]);
 
     const fetchHighScores = async () => {
         try{
