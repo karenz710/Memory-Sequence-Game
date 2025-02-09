@@ -28,7 +28,7 @@ function App() {
       message = 'Good job!'
     }
 
-    const saveScore = window.confirm(`Game over!\n\nYou reached level ${level}. ${message}\n\n Save score?`);
+    const saveScore = window.confirm(`Game over!\n\nYou reached level ${level}. ${message}\n\nSave score?`);
 
     if (saveScore) {
       try {
@@ -43,12 +43,7 @@ function App() {
         setGameStarted(false);
       }
     } else {
-      const playAgain = window.confirm('Play again?');
-      if (playAgain) {
-        setGameStarted(true);
-      } else {
         setGameStarted(false);
-      }
     }
   };
 
