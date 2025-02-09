@@ -10,16 +10,30 @@ app.use(cors());
 app.use(express.json());
 
 // Fetch high scores
-app.get("/api/highscores", (req, res) => {
+app.get("/api/highscores", async(req, res) => {
   const query = "SELECT * FROM highscores ORDER BY level DESC, created_at ASC";
-  db.query(query, (err, results) => {
-    if (err) {
+
+    try {
+      const [results] = await db.promise().query(query)
+      res.json(results)
+    } catch (err) {
       console.error("Error fetching high scores:", err);
       res.status(500).json({ success: false, message: "Failed to fetch high scores" });
-      return;
     }
-    res.json(results);
-  });
+});
+
+// Add new H.S
+app.post("/api/highscores", async (req, res) => {
+  const { level } = req.body;
+  const query = "INSERT INTO highscores (level, created_at) VALUES (?, NOW())"; // timestamp is NOW() function !
+  
+  try {
+    const [result] = await db.promise().query(query, [level]);
+    res.json({ success: true, id: result.insertId});
+  } catch (err) {
+    console.error("Error adding high score", err);
+    res.status(500).json({ success: false, message: "Failed to add high score"});
+  }
 });
 
 // Start the server

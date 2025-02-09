@@ -13,6 +13,7 @@ function App() {
     setGameStarted(true);
   };
 
+  // save score logic or game over logic
   const handleGameOver = async (level) => {
     let message = ''
     if (level <= 5) {
@@ -31,7 +32,6 @@ function App() {
       try {
         await axios.post('http://localhost:5000/api/highscores', {
           level: level,
-          time: new Date().toISOString()
         });
         alert('Score saved :)');
         setGameStarted(false);
